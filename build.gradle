@@ -29,6 +29,18 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+
+	// Json Parse & GSon
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+	implementation 'com.google.code.gson:gson:2.9.0'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+
+	// Mybatis
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
+
+	// PostgreSql
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
+	runtimeOnly 'org.postgresql:postgresql'
 }
 
 tasks.named('test') {

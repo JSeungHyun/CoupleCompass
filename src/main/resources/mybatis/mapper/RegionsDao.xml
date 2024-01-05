@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.CoupleCompass.dao.RegionDao">
+
+    <insert id="insertRegions" parameterType="java.util.List">
+        INSERT INTO (city, city_code, gu, gu_code)
+        VALUES
+        <foreach collection="list" item="region" index="index" separator=",">
+            (
+            #{region.city},
+            #{region.cityCode},
+            #{region.gu},
+            #{region.guCode}
+            )
+        </foreach>
+    </insert>
+</mapper>
