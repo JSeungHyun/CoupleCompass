@@ -67,8 +67,8 @@ class CoupleCompassApplicationTests {
                 RegionDto dto = RegionDto.builder()
                         .city(regionNameSplit[0])
                         .gu(regionNameSplit[1])
-                        .cityCode(String.valueOf(i.get()))
-                        .guCode(i.get() + "_" + j.getAndIncrement())
+                        .cityCode(String.format("%02d", i.get()))
+                        .guCode(String.format("%02d_%02d", i.get(), j.getAndIncrement()))
                         .build();
 
                 insertRegionDtos.add(dto);
