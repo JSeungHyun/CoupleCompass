@@ -6,7 +6,7 @@
 <mapper namespace="com.CoupleCompass.dao.RegionDao">
 
     <insert id="insertRegions" parameterType="java.util.List">
-        INSERT INTO (city, city_code, gu, gu_code)
+        INSERT INTO cc_regions (city, city_code, gu, gu_code)
         VALUES
         <foreach collection="list" item="region" index="index" separator=",">
             (

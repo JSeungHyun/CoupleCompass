@@ -36,11 +36,12 @@ dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
 
 	// Mybatis
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+	implementation 'org.mybatis:mybatis-spring'
+	implementation 'org.mybatis:mybatis'
 
 	// PostgreSql
-	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
-	runtimeOnly 'org.postgresql:postgresql'
+	implementation 'org.postgresql:postgresql'
 
 	// JSTL
 	implementation 'javax.servlet:jstl'
