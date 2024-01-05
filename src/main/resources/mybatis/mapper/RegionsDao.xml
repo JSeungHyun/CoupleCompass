@@ -16,4 +16,17 @@
             )
         </foreach>
     </insert>
+
+    <update id="updateGeo">
+        UPDATE "COUPLE_COMPASS"."CC_REGIONS"
+        SET longitude = #{longitude}
+           ,latitude = #{latitude}
+        WHERE city LIKE '%' ||  #{city} || '%'
+          AND gu LIKE '%' ||  #{gu} || '%'
+    </update>
+
+    <select id="selectRegion" resultType="com.CoupleCompass.dto.RegionDto">
+        SELECT *
+        FROM "COUPLE_COMPASS"."CC_REGIONS"
+    </select>
 </mapper>
