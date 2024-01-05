@@ -41,6 +41,11 @@ dependencies {
 	// PostgreSql
 	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
 	runtimeOnly 'org.postgresql:postgresql'
+
+	// JSTL
+	implementation 'javax.servlet:jstl'
+	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
+	implementation 'org.springframework.security:spring-security-taglibs'
 }
 
 tasks.named('test') {
