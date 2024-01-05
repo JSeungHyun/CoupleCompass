@@ -16,6 +16,8 @@ public class SiteMeshConfig {
             @Override
             protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
                 builder.addDecoratorPath("/*", "/WEB-INF/decorators/default.jsp");
+                builder.addDecoratorPath("/login", "/WEB-INF/decorators/login_default.jsp");
+                builder.addDecoratorPath("/signup", "/WEB-INF/decorators/login_default.jsp");
             }
         });
         filter.addUrlPatterns("/*");

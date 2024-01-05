@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Responsive Layout</title>
 
+    <sitemesh:write property='head'/>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,30 +63,13 @@
             }
         }
     </style>
-
-    <sitemesh:write property='style'/>
 </head>
 <body>
-
-<%--헤더--%>
-<header>
-    <h1>Mobile Responsive WebApp</h1>
-</header>
 
 <%--메인--%>
 <section>
     <sitemesh:write property='body'/>
 </section>
-
-<%--하단 네비게이션 바--%>
-<footer>
-    <nav>
-        <a href="#">HOME</a>
-        <a href="#">CHAT</a>
-        <a href="#">LETTER</a>
-        <a href="#">SETTING</a>
-    </nav>
-</footer>
 
 </body>
 </html>

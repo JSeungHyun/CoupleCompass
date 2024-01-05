@@ -23,6 +23,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.testng:testng:7.1.0'
 	testImplementation 'org.projectlombok:lombok:1.18.28'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -50,6 +51,12 @@ dependencies {
 
 	// SiteMesh
 	implementation 'org.sitemesh:sitemesh:3.0.1'
+
+	// Apache Commons Validator - ValidationException
+	implementation 'commons-validator:commons-validator:1.7'
+
+	// Matcher - Pattern
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
 }
 
 tasks.named('test') {
