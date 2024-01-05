@@ -35,10 +35,6 @@
             text-decoration: none;
         }
 
-        section {
-            padding: 20px;
-        }
-
         footer {
             position: absolute;
             bottom: 0;
@@ -47,6 +43,15 @@
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
             justify-content: space-around;
             align-items: center;
+        }
+
+        .map {
+            max-width: 600px;
+            max-height: 600px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
         }
 
         @media (min-width: 601px) {
@@ -68,7 +73,7 @@
 
 <%--헤더--%>
 <header>
-    <h1>Mobile Responsive WebApp</h1>
+    <h1>Couple Compass</h1>
 </header>
 
 <%--메인--%>
