@@ -7,5 +7,5 @@ import java.util.List;
 
 @Mapper
 public interface RegionDao {
-    void insertRegions(List<RegionDto> regionsDtos);
+    void insertRegions(List<RegionDto> regionDtos);
 }
