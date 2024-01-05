@@ -36,7 +36,7 @@ public class CmFunction {
         return matcher.matches();
     }
 
-    /** 에러 처리 */
+    /** 에러 처리용 메서드 */
     public static class ValidationException extends Exception {
         public ValidationException(String message) {
             super(message);

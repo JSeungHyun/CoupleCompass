@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Responsive Layout</title>
 
+    <sitemesh:write property='head'/>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,9 +63,8 @@
             }
         }
     </style>
-
-    <sitemesh:write property='style'/>
 </head>
+
 <body>
 
 <%--헤더--%>

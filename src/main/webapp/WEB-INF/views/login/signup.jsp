@@ -55,16 +55,16 @@
 <div class="signup-container">
     <h2>Sign Up</h2>
     <form action="/signup" method="post">
-        <label for="username">Username:</label>
+        <label for="username">Username</label>
         <input type="text" id="username" name="username" required>
 
-        <label for="email">Email:</label>
+        <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="password">Password:</label>
+        <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
 
-        <label for="confirmPassword">Confirm Password:</label>
+        <label for="confirmPassword">Confirm Password</label>
         <input type="password" id="confirmPassword" name="confirmPassword" required>
 
         <button type="submit">Sign Up</button>
