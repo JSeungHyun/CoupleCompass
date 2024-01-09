@@ -4,9 +4,13 @@ import com.CoupleCompass.dto.UserDto;
 import com.CoupleCompass.service.UserService;
 import com.CoupleCompass.util.CmFunction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class LoginController {
@@ -20,9 +24,14 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login_action(UserDto userDto) {
-        System.out.println(userDto);
-        return "login/login";
+    public ResponseEntity<String> login_action(UserDto userDto, HttpServletRequest request) {
+        try {
+            userService.login(userDto, request);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+        return ResponseEntity.ok("환영합니다!");
     }
 
     @GetMapping("/signup")
@@ -31,12 +40,13 @@ public class LoginController {
     }
 
     @PostMapping("/signup")
-    public String signup_action(UserDto userDto) throws CmFunction.ValidationException {
+    public ResponseEntity<String> signup_action(UserDto userDto) throws CmFunction.ValidationException {
          try {
              userService.saveUser(userDto);
          } catch (Exception e) {
              System.out.println(e.getMessage());
+             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
          }
-        return "login/signup";
+         return ResponseEntity.ok(userDto.getUsername() + " 님, 환영합니다!");
     }
 }

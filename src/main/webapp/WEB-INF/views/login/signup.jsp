@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +58,7 @@
         <input type="text" id="username" name="username" required>
         <span id="username-error" class="error-message"></span>
 
-        <label for="email">Email</label>
+<label for="email">Email</label>
         <input type="email" id="email" name="email" required>
         <span id="email-error" class="error-message"></span>
 
@@ -146,11 +143,25 @@
             if (code.value == null || code.value == '') { // 코드 값이 없다면
                 alert('코드 값 없이 진행하겠습니까?')
             }
+
+            $.ajax({
+                url: "/signup",
+                type: "POST",
+                data: {
+                    username: username.value,
+                    email: email.value,
+                    password: password.value,
+                    code: code.value
+                },
+                success: function (response) {
+                    alert(response);
+                    window.location.href = "/login";
+                },
+                error: function (error) {
+                    alert(error.responseText);
+                }
+            });
         }
-
-
-
-
     }
 </script>
 </body>

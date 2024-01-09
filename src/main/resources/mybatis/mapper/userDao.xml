@@ -5,11 +5,58 @@
 
 <mapper namespace="com.CoupleCompass.dao.UserDao">
 
-    <insert id="saveUser">
-        INSERT INTO "COUPLE_COMPASS"."CC_USER" (username, email, password, created_at)
+    <select id="saveUser" resultType="long">
+        INSERT INTO "COUPLE_COMPASS"."CC_USER" (username, email, password, code, created_at)
         VALUES (#{username},
                 #{email},
                 #{password},
+                #{code},
+                now())
+        RETURNING user_id
+    </select>
+
+    <select id="findByEmail" resultType="com.CoupleCompass.dto.UserDto">
+        SELECT user_id as userId,
+               username,
+               email,
+               password,
+               code,
+               created_at as createdAt
+        FROM "COUPLE_COMPASS"."CC_USER"
+        WHERE email = #{email}
+    </select>
+
+    <select id="findByCode" resultType="com.CoupleCompass.dto.UserDto">
+        SELECT user_id as userId,
+               username,
+               email,
+               password,
+               code,
+               created_at as createdAt
+        FROM "COUPLE_COMPASS"."CC_USER"
+        WHERE code = #{code}
+    </select>
+
+    <select id="findCoupleByUserId" resultType="com.CoupleCompass.dto.CoupleDto">
+        SELECT couple_id as coupleId,
+               user1_id as user1Id,
+               user2_id as user2Id,
+               created_at as createdAt
+        FROM "COUPLE_COMPASS"."CC_COUPLE"
+        WHERE user1_id = #{userId}
+        OR user2_id = #{userId}
+    </select>
+
+    <insert id="saveCouple">
+        INSERT INTO "COUPLE_COMPASS"."CC_COUPLE" (user1_id, user2_id, created_at)
+        VALUES (#{user1Id},
+                #{user2Id},
                 now())
     </insert>
+
+    <update id="updateCodeToNull">
+        UPDATE "COUPLE_COMPASS"."CC_USER"
+        SET code = null
+        WHERE user_id = #{userId}
+    </update>
 </mapper>

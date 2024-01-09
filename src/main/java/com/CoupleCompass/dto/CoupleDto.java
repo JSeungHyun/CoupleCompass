@@ -7,11 +7,9 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-public class UserDto {
-    private Long userId;
-    private String username;
-    private String email;
-    private String password;
-    private String code;
+public class CoupleDto {
+    private Long coupleId;
+    private Long user1Id;
+    private Long user2Id;
     private LocalDateTime createdAt;
 }
